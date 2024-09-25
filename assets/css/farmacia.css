@@ -15,6 +15,7 @@ header {
     display: flex;
     justify-content: space-around;
     padding: 0;
+    height: ;
 }
 
 
@@ -41,7 +42,7 @@ header {
     flex: 1;
     max-width: 400px;
     min-width: 300px;
-    height: 450px;
+    height: 550px;
     overflow: auto;
 }
 
@@ -100,21 +101,21 @@ button:hover {
 }
 
 li {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-li.show {
-    opacity: 1;
-    transform: translateY(0);
+.aberta {
+    color: green;
+    font-weight: bold;
 }
 
-li.hide {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+.fechada {
+    color: red;
+    font-weight: bold;
 }
+
 
 #farmacia-list button {
     background-color: #ffcc00;
