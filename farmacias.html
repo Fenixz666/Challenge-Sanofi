@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Farmácia</title>
+    <title>Procurar Farmácias</title>
     <link rel="stylesheet" href="assets/css/farmacia.css">
 </head>
 
@@ -18,37 +18,34 @@
     
     <main class="main-container">
         <section class="form-section">
-            <h2>Cadastrar Farmácia</h2>
-            <form id="farmacia-form">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-
-                <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" name="endereco" required>
-
-                <label for="horario">Horário de Funcionamento:</label>
-                <input type="text" id="horario" name="horario" required>
-
-                <label for="produtos">Produtos:</label>
-                <textarea id="produtos" name="produtos" required></textarea>
-
-                <button type="submit">Cadastrar</button>
-            </form>
+            <h2>Procurar Farmácias</h2>
+            <button id="change-location-button">Alterar Localização</button>
+            <div id="location-info">
+                <p id="current-location">Localização Atual: <span id="location-details"></span></p>
+            </div>
+            
+            <div id="map" style="width: 100%; height: 400px;"></div>
+            
             <section id="message-section"></section>
         </section>
 
-        <section id="notification" style="display: flex; 
-        color: #901cc5; 
-        text-align: center; 
-        margin-top: 10px;
-        font-family: Sanofi;"></section> 
+        <div id="location-popup" class="popup">
+            <div class="popup-content">
+                <img id="localização" src="assets/Imagens/Environment illustration 10.png" alt="">
+                <span class="close">&times;</span>
+                <h2>Alterar Localização</h2>
+                <input id="autocomplete" type="text" placeholder="Digite seu endereço...">
+                <button id="set-location-button">Definir Localização</button>
+            </div>
+        </div>
 
         <section class="Cadastradas">
-            <h2>Farmácias Cadastradas</h2>
+            <h2>Farmácias Perto de você</h2>
             <ul id="farmacia-list"></ul>
         </section>
     </main>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=SUA_API_KEY&libraries=places"></script>
     <script src="assets/javascript/farmacia.js"></script>
 </body>
 

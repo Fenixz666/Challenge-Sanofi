@@ -44,8 +44,6 @@ header {
     opacity: 0.9;
 }
 
-
-
 main {
     display: flex;
     flex-direction: column;

@@ -1,81 +1,97 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const farmaciaForm = document.getElementById('farmacia-form');
-    const farmaciaList = document.getElementById('farmacia-list');
-    const messageSection = document.getElementById('message-section');
-    let farmacias = JSON.parse(localStorage.getItem('farmacias')) || [];
-    let editIndex = -1;
+let map;
+let service;
+let userLocation;
+let autocomplete;
 
-    function renderFarmaciaList() {
-        farmaciaList.innerHTML = '';
-        farmacias.forEach((farmacia, index) => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <strong>${farmacia.nome}</strong><br>
-                Endereço: ${farmacia.endereco}<br>
-                Horário: ${farmacia.horario}<br>
-                Produtos: ${farmacia.produtos}<br>
-                <button onclick="editFarmacia(${index})">Editar</button>
-                <button onclick="deleteFarmacia(${index})">Apagar</button>
-            `;
-            farmaciaList.appendChild(li);
+function initMap() {
+    userLocation = { lat: -23.5505, lng: -46.6333 };
 
-            requestAnimationFrame(() => {
-                li.classList.add('show');
-            });
-        });
-    }
-
-    window.editFarmacia = (index) => {
-        const farmacia = farmacias[index];
-        document.getElementById('nome').value = farmacia.nome;
-        document.getElementById('endereco').value = farmacia.endereco;
-        document.getElementById('horario').value = farmacia.horario;
-        document.getElementById('produtos').value = farmacia.produtos;
-        editIndex = index;
-    };
-
-    window.deleteFarmacia = (index) => {
-        const liToDelete = farmaciaList.children[index];
-        liToDelete.classList.add('hide');
-        setTimeout(() => {
-            farmacias.splice(index, 1);
-            localStorage.setItem('farmacias', JSON.stringify(farmacias));
-            renderFarmaciaList();
-            showNotification("Farmácia apagada com sucesso!");
-        }, 300);
-    };
-
-    farmaciaForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        const novaFarmacia = {
-            nome: document.getElementById('nome').value,
-            endereco: document.getElementById('endereco').value,
-            horario: document.getElementById('horario').value,
-            produtos: document.getElementById('produtos').value,
-        };
-
-        if (editIndex === -1) {
-            farmacias.push(novaFarmacia);
-            showNotification("Farmácia cadastrada com sucesso!");
-        } else {
-            farmacias[editIndex] = novaFarmacia;
-            showNotification("Farmácia alterada com sucesso!");
-            editIndex = -1;
-        }
-
-        localStorage.setItem('farmacias', JSON.stringify(farmacias));
-        farmaciaForm.reset();
-        renderFarmaciaList();
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: userLocation,
+        zoom: 14,
     });
 
-    function showNotification(message) {
-        messageSection.innerHTML = `<strong>${message}</strong>`;
-        messageSection.style.display = "block";
-        setTimeout(() => {
-            messageSection.style.display = "none";
-        }, 3000);
-    }
+    new google.maps.Marker({
+        position: userLocation,
+        map: map,
+        title: "Você está aqui",
+    });
 
-    renderFarmaciaList();
-});
+    service = new google.maps.places.PlacesService(map);
+    autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
+    autocomplete.setFields(['address_component', 'geometry']);
+}
+
+function searchPharmacies() {
+    const request = {
+        location: userLocation,
+        radius: '5000',
+        type: ['pharmacy'],
+    };
+
+    service.nearbySearch(request, callback);
+}
+
+function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        document.getElementById("farmacia-list").innerHTML = '';
+        results.forEach(place => {
+            const distance = calculateDistance(userLocation, place.geometry.location);
+            const isOpen = place.opening_hours && place.opening_hours.open_now ? "Aberta" : "Fechada";
+            const li = document.createElement("li");
+            li.innerText = `${place.name} - ${isOpen} - ${distance} km`;
+            document.getElementById("farmacia-list").appendChild(li);
+            createMarker(place);
+        });
+    }
+}
+
+function createMarker(place) {
+    const marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        title: place.name,
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        map.setCenter(marker.getPosition());
+    });
+}
+
+function calculateDistance(location1, location2) {
+    const rad = (x) => x * Math.PI / 180; 
+    const R = 6371; 
+    const dLat = rad(location2.lat() - location1.lat());
+    const dLon = rad(location2.lng() - location1.lng());
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(rad(location1.lat())) * Math.cos(rad(location2.lat())) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return (R * c).toFixed(2);
+}
+
+function openLocationPopup() {
+    document.getElementById("location-popup").style.display = 'block';
+}
+
+function setNewLocation() {
+    const place = autocomplete.getPlace();
+    if (place && place.geometry) {
+        userLocation = {
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng()
+        };
+        initMap();
+        searchPharmacies();
+        closeLocationPopup();
+    }
+}
+
+function closeLocationPopup() {
+    document.getElementById("location-popup").style.display = 'none';
+}
+
+document.getElementById('change-location-button').addEventListener('click', openLocationPopup);
+document.getElementById('set-location-button').addEventListener('click', setNewLocation);
+document.querySelector('#location-popup .close').addEventListener('click', closeLocationPopup);
+document.addEventListener("DOMContentLoaded", initMap);
