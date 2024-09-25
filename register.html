@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="assets/css/registro.css">
+</head>
+
+<body>
+    <header>
+        <h1>Registro</h1>
+    </header>
+    <div class="Fundo">
+        <img src="assets/Imagens/202306 Digital France Group-Porte-Cadu Sanofi 09©SimonBuxton.jpg" alt="">
+    </div>
+
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+         <span class="close-button">&times;</span>
+         <h2>Registro bem-sucedido</h2>
+         <p>Redirecionando para a pagina principal...</p>
+         </div>
+        </div>
+
+        <div id="error-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Falha de registro</h2>
+                <p>Email já cadastrado</p>
+            </div>
+        </div>
+
+    <main>
+        <section class="form-section">
+            <h2>Crie uma nova conta</h2>
+            <form id="register-form">
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" name="email" required>
+
+                <label for="register-password">Senha:</label>
+                <input type="password" id="register-password" name="password" required>
+
+                <label for="confirm-password">Confirme sua Senha:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+        </section>
+    </main>
+
+    <script src="assets/javascript/register.js"></script>
+</body>
+
+</html>

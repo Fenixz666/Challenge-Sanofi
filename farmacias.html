@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Farmácia</title>
+    <link rel="stylesheet" href="assets/css/farmacia.css">
+</head>
+
+<body>
+    <header>
+        <h1>Farmácias</h1>
+    </header>
+    <div class="Fundo"> 
+        <img src="assets/Imagens/202306 MS Italy Ampoules-Loading Sanofi 30©SimonBuxton.jpg" alt=""> 
+    </div>
+    
+    <main class="main-container">
+        <section class="form-section">
+            <h2>Cadastrar Farmácia</h2>
+            <form id="farmacia-form">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+
+                <label for="horario">Horário de Funcionamento:</label>
+                <input type="text" id="horario" name="horario" required>
+
+                <label for="produtos">Produtos:</label>
+                <textarea id="produtos" name="produtos" required></textarea>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+            <section id="message-section"></section>
+        </section>
+
+        <section id="notification" style="display: flex; 
+        color: #901cc5; 
+        text-align: center; 
+        margin-top: 10px;
+        font-family: Sanofi;"></section> 
+
+        <section class="Cadastradas">
+            <h2>Farmácias Cadastradas</h2>
+            <ul id="farmacia-list"></ul>
+        </section>
+    </main>
+
+    <script src="assets/javascript/farmacia.js"></script>
+</body>
+
+</html>

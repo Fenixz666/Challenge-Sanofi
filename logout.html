@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link rel="stylesheet" href="assets/css/logout.css">
+</head>
+
+<body>
+    <header>
+        <h1>Logout</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Você foi desconectado.</h2>
+            <p>Redirecionando para a página de login...</p>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            localStorage.removeItem('currentUser');
+            setTimeout(function () {
+                window.location.href = 'login.html';
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
