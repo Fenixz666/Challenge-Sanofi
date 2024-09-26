@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     if (!user) {
         alert('Você precisa estar logado para acessar esta página.');
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
         return;
     }
 

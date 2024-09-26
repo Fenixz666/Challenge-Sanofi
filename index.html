@@ -12,22 +12,6 @@
     <div class="container">
         <div class="image-section">
             <img src="assets/Imagens/202010 MS China JiaXiaoJing Sanofi 2593©GillesSabrié-CapaPictures.jpg" alt="Img login" class="Img-login">
-            
-        </div>
-     <div id="success-modal" class="modal">
-        <div class="modal-content">
-         <span class="close-button">&times;</span>
-         <h2>Login bem-sucedido</h2>
-         <p>Redirecionando para a pagina principal...</p>
-         </div>
-        </div>
-
-        <div id="error-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <h2>Falha de login</h2>
-                <p>Email ou senha incorretos. Por favor, tente novamente.</p>
-            </div>
         </div>
 
         <div class="login-section">
@@ -39,20 +23,23 @@
             <main>
                 <section class="form-section">
                     <h2>Entre na sua conta</h2>
+                    <p id="error-message" class="error-message" style="color: red; display: none; margin-top: 10px;"></p>
+
                     <form id="login-form">
-                        <label for="login-email">Email:</label>
-                        <input type="email" id="login-email" name="email" required>
-        
-                        <label for="login-password">Senha:</label>
-                        <input type="password" id="login-password" name="password" required>
-        
-                        <button type="submit">Entrar</button>
+                        <div class="input-container">
+                            <input type="email" id="login-email" name="email"  placeholder=" ">
+                            <label class="placeholder" for="login-email">Email</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" id="login-password" name="password"  placeholder=" ">
+                            <label class="placeholder" for="login-password">Senha</label>
+                        </div>
+                        <button type="submit" id="login-button" class="login-button">Entrar</button>
                     </form>
                     <p>Não tem uma conta? <a href="register.html">Cadastre-se</a></p>
-                </section>
+                </section>                
             </main>
         </div>
-        
 
     <script src="assets/javascript/login.js"></script>
 </body>

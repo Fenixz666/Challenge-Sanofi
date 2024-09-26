@@ -181,6 +181,98 @@ footer {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Estilos para inputs */
+.form-section .input-container {
+    position: relative; /* Para o posicionamento dos placeholders */
+    margin-bottom: 1rem;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #BDC3C7;
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-section input:focus {
+    border-color: #2980B9; /* Mudança de cor ao focar */
+    outline: none; /* Remove o contorno padrão */
+}
+
+/* Estilos para placeholders */
+/* Estilos para placeholders */
+.form-section .placeholder {
+    position: absolute;
+    top: 12px; /* Ajuste a posição vertical */
+    left: 12px; /* Ajuste a posição horizontal */
+    transition: 0.3s ease all;
+    color: #BDC3C7; /* Cor do placeholder */
+    font-size: 1em; /* Tamanho inicial */
+    background-color: #ffffff; /* Fundo correspondente ao da caixa de texto */
+    padding: 0 4px; /* Espaçamento para dar um efeito de "corte" */
+}
+
+/* Quando o input é focado */
+.form-section input:focus + .placeholder,
+.form-section input:not(:placeholder-shown) + .placeholder {
+    top: -8px; /* Mova o placeholder para cima */
+    left: 10px; /* Ajuste a posição horizontal */
+    font-size: 0.8em; /* Diminui o tamanho do placeholder */
+    color: #2980B9; /* Muda a cor do placeholder */
+    pointer-events: none; /* Desativa a interação com o placeholder */
+}
+
+
+.register-button {
+    position: relative;
+    background-color: #007BFF; /* Cor do botão */
+    color: white; /* Cor do texto */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.loading {
+    background-color: #ccc; /* Cor do botão enquanto carrega */
+}
+
+.loader {
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin: 0 2px;
+    border-radius: 50%;
+    background: white;
+    animation: loader-animation 0.6s infinite alternate;
+}
+
+.loader:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loader-animation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+.hidden {
+    display: none; /* Oculta elementos */
+}
+
+
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -203,4 +295,11 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: none; /* Oculta por padrão */
+    margin-bottom: 1.25rem;
 }
