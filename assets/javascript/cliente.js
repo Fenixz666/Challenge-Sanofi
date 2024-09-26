@@ -16,21 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
         email: document.getElementById('email-error')
     };
 
-    // Bloquear campos
     function lockFields() {
         fields.forEach(field => {
             field.disabled = true;
         });
     }
 
-    // Desbloquear campos
     function unlockFields() {
         fields.forEach(field => {
             field.disabled = false;
         });
     }
 
-    // Formatar CPF (000.000.000-00)
     cpfInput.addEventListener('input', function () {
         let cpf = cpfInput.value.replace(/\D/g, '');
         cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
@@ -39,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
         cpfInput.value = cpf;
     });
 
-    // Formatar Telefone (00) 00000-0000
     phoneInput.addEventListener('input', function () {
         let phone = phoneInput.value.replace(/\D/g, '');
         phone = phone.replace(/(\d{2})(\d)/, '($1) $2');
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         phoneInput.value = phone;
     });
 
-    // Validação de CPF (Simples, mas pode ser aprimorada para seguir as regras de validação real de CPF)
     function isValidCPF(cpf) {
         cpf = cpf.replace(/\D/g, '');
         if (cpf.length !== 11) return false;
@@ -64,25 +59,21 @@ document.addEventListener("DOMContentLoaded", function () {
         return true;
     }
 
-    // Validação de Telefone
     function isValidPhone(phone) {
         phone = phone.replace(/\D/g, '');
         return phone.length === 11;
     }
 
-    // Exibe erro
     function showError(inputName, message) {
         errorMessages[inputName].innerText = message;
         errorMessages[inputName].style.display = 'block';
     }
 
-    // Oculta erro
     function hideError(inputName) {
         errorMessages[inputName].innerText = '';
         errorMessages[inputName].style.display = 'none';
     }
 
-    // Valida campos individualmente
     function validateField(inputName, value) {
         if (!value) {
             showError(inputName, 'Este campo é obrigatório');
@@ -92,7 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return true;
     }
 
-    // Valida CPF e Telefone com mensagens específicas
     function validateCPFAndPhone() {
         const cpf = document.getElementById('cpf').value.trim();
         const phone = document.getElementById('phone').value.trim();
@@ -115,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return valid;
     }
 
-    // Função para salvar os dados no LocalStorage
     function saveDataToLocalStorage() {
         const data = {
             fullName: document.getElementById('full-name').value.trim(),
@@ -127,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem('userInfo', JSON.stringify(data));
     }
 
-    // Função para carregar os dados do LocalStorage
     function loadDataFromLocalStorage() {
         const savedData = localStorage.getItem('userInfo');
         if (savedData) {
@@ -145,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loadDataFromLocalStorage();
 
-    // Evento ao clicar no botão Salvar
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -157,14 +144,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let valid = true;
 
-        // Validar todos os campos individualmente
         valid &= validateField('fullName', fullName);
         valid &= validateField('birthdate', birthdate);
         valid &= validateField('cpf', cpf);
         valid &= validateField('phone', phone);
         valid &= validateField('email', email);
 
-        // Validações específicas para CPF e Telefone
         valid &= validateCPFAndPhone();
 
         if (!valid) return;
@@ -176,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
         editButton.style.display = 'inline-block';
     });
 
-    // Evento ao clicar no botão Alterar
     editButton.addEventListener('click', () => {
         unlockFields();
         saveButton.style.display = 'inline-block';

@@ -1,7 +1,7 @@
 @font-face {
     font-family: Sanofi;
     src: url(Fontes/SanofiSerif-Regular.otf),
-    url(Fontes/SanofiSerif-Bold.otf);
+         url(Fontes/SanofiSerif-Bold.otf);
 }
 
 * {
@@ -115,7 +115,57 @@ button {
 }
 
 button:hover {
-    background-color: #a72ae1e3;
+    background-color: #2980B9;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+input {
+    width: 100%;
+    padding: 0.5em;
+    padding-top: 1.5em;
+    border: 1px solid #BDC3C7;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #2980B9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+    outline: none;
+}
+
+label {
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    font-size: 1em;
+    color: #BDC3C7;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: #ECF0F1;
+    padding: 0 0.2em;
+    z-index: 1;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: -0.8em;
+    font-size: 0.8em;
+    color: #BDC3C7;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: none;
 }
 
 p {
@@ -181,9 +231,8 @@ footer {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Estilos para inputs */
 .form-section .input-container {
-    position: relative; /* Para o posicionamento dos placeholders */
+    position: relative;
     margin-bottom: 1rem;
 }
 
@@ -192,44 +241,40 @@ footer {
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #BDC3C7;
-    border-radius: 8px; /* Bordas arredondadas */
+    border-radius: 8px;
     font-size: 1em;
     transition: border-color 0.3s;
 }
 
 .form-section input:focus {
-    border-color: #2980B9; /* Mudança de cor ao focar */
-    outline: none; /* Remove o contorno padrão */
+    border-color: #2980B9;
+    outline: none;
 }
 
-/* Estilos para placeholders */
-/* Estilos para placeholders */
 .form-section .placeholder {
     position: absolute;
-    top: 12px; /* Ajuste a posição vertical */
-    left: 12px; /* Ajuste a posição horizontal */
+    top: 12px;
+    left: 12px;
     transition: 0.3s ease all;
-    color: #BDC3C7; /* Cor do placeholder */
-    font-size: 1em; /* Tamanho inicial */
-    background-color: #ffffff; /* Fundo correspondente ao da caixa de texto */
-    padding: 0 4px; /* Espaçamento para dar um efeito de "corte" */
+    color: #BDC3C7;
+    font-size: 1em;
+    background-color: #ffffff;
+    padding: 0 4px;
 }
 
-/* Quando o input é focado */
 .form-section input:focus + .placeholder,
 .form-section input:not(:placeholder-shown) + .placeholder {
-    top: -8px; /* Mova o placeholder para cima */
-    left: 10px; /* Ajuste a posição horizontal */
-    font-size: 0.8em; /* Diminui o tamanho do placeholder */
-    color: #2980B9; /* Muda a cor do placeholder */
-    pointer-events: none; /* Desativa a interação com o placeholder */
+    top: -8px;
+    left: 10px;
+    font-size: 0.8em;
+    color: #2980B9;
+    pointer-events: none;
 }
-
 
 .register-button {
     position: relative;
-    background-color: #007BFF; /* Cor do botão */
-    color: white; /* Cor do texto */
+    background-color: #007BFF;
+    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -238,7 +283,7 @@ footer {
 }
 
 .loading {
-    background-color: #ccc; /* Cor do botão enquanto carrega */
+    background-color: #ccc;
 }
 
 .loader {
@@ -269,9 +314,8 @@ footer {
 }
 
 .hidden {
-    display: none; /* Oculta elementos */
+    display: none;
 }
-
 
 .modal-content {
     background-color: #fefefe;
@@ -300,6 +344,6 @@ footer {
 .error-message {
     color: red;
     font-size: 0.875em;
-    display: none; /* Oculta por padrão */
+    display: none;
     margin-bottom: 1.25rem;
 }

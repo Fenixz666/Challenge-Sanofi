@@ -12,19 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const password = document.getElementById('register-password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
 
-            // Limpa a mensagem de erro
             errorMessage.style.display = 'none';
-
-            // Adiciona animação de carregamento
             registerButton.classList.add('loading');
             registerButton.innerHTML = '<div class="loader"></div><div class="loader"></div><div class="loader"></div>';
 
-            // Simula tempo de validação
             setTimeout(() => {
-                // Verifica campos vazios
                 if (!email || !password || !confirmPassword) {
                     registerButton.classList.remove('loading');
-                    registerButton.innerHTML = 'Cadastrar'; // Restaura o texto do botão
+                    registerButton.innerHTML = 'Cadastrar';
                     errorMessage.innerText = 'Por favor, preencha todos os campos.';
                     errorMessage.style.display = 'block';
                     return;
@@ -32,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (password !== confirmPassword) {
                     registerButton.classList.remove('loading');
-                    registerButton.innerHTML = 'Cadastrar'; // Restaura o texto do botão
+                    registerButton.innerHTML = 'Cadastrar';
                     errorMessage.innerText = 'As senhas não coincidem. Por favor, tente novamente.';
                     errorMessage.style.display = 'block';
                     return;
@@ -43,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (existingUser) {
                     registerButton.classList.remove('loading');
-                    registerButton.innerHTML = 'Cadastrar'; // Restaura o texto do botão
+                    registerButton.innerHTML = 'Cadastrar';
                     errorModal.style.display = 'block';
                     return;
                 }
@@ -57,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     window.location.href = 'index.html';
                 }, 3000);
-            }, 1000); // Tempo de simulação
+            }, 1000);
         });
     }
 

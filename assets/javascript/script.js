@@ -176,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const li = document.createElement('li');
             li.textContent = `Nome: ${farmacia.nome}, Endereço: ${farmacia.endereco}, Horário: ${farmacia.horario}, Produtos: ${farmacia.produtos}`;
 
-            // Botão de apagar farmácia
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Apagar';
             deleteButton.classList.add('delete-button');

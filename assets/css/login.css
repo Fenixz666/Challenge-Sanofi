@@ -87,7 +87,6 @@ main {
     height: 20px;
 }
 
-
 .form-section {
     max-width: 400px;
     width: 100%;
@@ -95,7 +94,7 @@ main {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative; /* Para o posicionamento dos placeholders */
+    position: relative;
 }
 
 .form-section h2 {
@@ -111,9 +110,8 @@ main {
     color: #2C3E50;
 }
 
-/* Estilos para inputs */
 .form-section .input-container {
-    position: relative; /* Para o posicionamento dos placeholders */
+    position: relative;
     margin-bottom: 1rem;
 }
 
@@ -122,39 +120,35 @@ main {
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #BDC3C7;
-    border-radius: 8px; /* Bordas arredondadas */
+    border-radius: 8px;
     font-size: 1em;
     transition: border-color 0.3s;
 }
 
 .form-section input:focus {
-    border-color: #2980B9; /* Mudança de cor ao focar */
-    outline: none; /* Remove o contorno padrão */
+    border-color: #2980B9;
+    outline: none;
 }
 
-/* Estilos para placeholders */
-/* Estilos para placeholders */
 .form-section .placeholder {
     position: absolute;
-    top: 12px; /* Ajuste a posição vertical */
-    left: 12px; /* Ajuste a posição horizontal */
+    top: 12px;
+    left: 12px;
     transition: 0.3s ease all;
-    color: #BDC3C7; /* Cor do placeholder */
-    font-size: 1em; /* Tamanho inicial */
-    background-color: #ffffff; /* Fundo correspondente ao da caixa de texto */
-    padding: 0 4px; /* Espaçamento para dar um efeito de "corte" */
+    color: #BDC3C7;
+    font-size: 1em;
+    background-color: #ffffff;
+    padding: 0 4px;
 }
 
-/* Quando o input é focado */
 .form-section input:focus + .placeholder,
 .form-section input:not(:placeholder-shown) + .placeholder {
-    top: -8px; /* Mova o placeholder para cima */
-    left: 10px; /* Ajuste a posição horizontal */
-    font-size: 0.8em; /* Diminui o tamanho do placeholder */
-    color: #2980B9; /* Muda a cor do placeholder */
-    pointer-events: none; /* Desativa a interação com o placeholder */
+    top: -8px;
+    left: 10px;
+    font-size: 0.8em;
+    color: #2980B9;
+    pointer-events: none;
 }
-
 
 button {
     width: 100%;
@@ -207,8 +201,8 @@ footer {
 
 .login-button {
     position: relative;
-    background-color: #901cc5e3; /* Cor do botão */
-    color: white; /* Cor do texto */
+    background-color: #901cc5e3;
+    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -217,7 +211,7 @@ footer {
 }
 
 .loading {
-    background-color: #ccc; /* Cor do botão enquanto carrega */
+    background-color: #ccc;
 }
 
 .loader {
@@ -248,13 +242,13 @@ footer {
 }
 
 .hidden {
-    display: none; /* Oculta elementos */
+    display: none;
 }
 
 .error-message {
     color: red;
     font-size: 0.875em;
-    display: none; /* Oculta por padrão */
+    display: none;
     margin-bottom: 1.25rem;
 }
 
