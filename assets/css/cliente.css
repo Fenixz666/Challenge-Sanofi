@@ -119,3 +119,9 @@ button:hover {
     font-size: 28px;
     cursor: pointer;
 }
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: none; /* Oculta por padrão */
+    margin-top: 0.25em;
+}
