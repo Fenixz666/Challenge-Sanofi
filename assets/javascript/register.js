@@ -73,3 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+function togglePassword(passwordFieldId) {
+    const passwordField = document.getElementById(passwordFieldId);
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+}

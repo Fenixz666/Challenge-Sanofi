@@ -11,7 +11,7 @@
     <header>
         <h1 class="animate__animated animate__fadeInDown">Bem-vindo à Solução de Troca de Produtos</h1>
         <p id="greeting" class="greeting-text">Olá, <span id="user-name">Usuário</span></p>
-    </header>
+        </header>
     <div class="Fundo">
         <img src="assets/Imagens/202307 MS France All-carton-packaging Sanofi 19©SimonBuxton.jpg" alt="Fundo">
     </div>
@@ -34,5 +34,12 @@
     </nav>
 
     <script src="assets/javascript/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userName = "João"; // Nome pré-definido, simula um nome do banco de dados
+            document.getElementById("user-name").textContent = userName;
+        });
+    </script>
+    
 </body>
 </html>

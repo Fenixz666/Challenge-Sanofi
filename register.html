@@ -38,16 +38,18 @@
             <p id="error-message" class="error-message" style="color: red; display: none;"></p> 
             <form id="register-form">
                 <div class="input-container">
-                    <input type="email" id="register-email" name="email"  placeholder=" ">
+                    <input type="email" id="register-email" name="email" placeholder=" " required>
                     <label class="placeholder" for="register-email">Email</label>
                 </div>
                 <div class="input-container">
-                    <input type="password" id="register-password" name="password"  placeholder=" ">
+                    <input type="password" id="register-password" name="password" placeholder=" " required>
                     <label class="placeholder" for="register-password">Senha</label>
+                    <img id="toggle-password" class="toggle-password" src="assets/Imagens/eye-password-hide-svgrepo-com.png" onclick="togglePassword('register-password')" alt="Mostrar Senha">
                 </div>
                 <div class="input-container">
-                    <input type="password" id="confirm-password" name="confirm-password"  placeholder=" ">
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder=" " required>
                     <label class="placeholder" for="confirm-password">Confirme sua Senha</label>
+                    <img id="toggle-confirm-password" class="toggle-password" src="assets/Imagens/eye-password-hide-svgrepo-com.png" onclick="togglePassword('confirm-password')" alt="Mostrar Senha">
                 </div>
                 <button type="submit" id="register-button">Cadastrar</button>
             </form>
