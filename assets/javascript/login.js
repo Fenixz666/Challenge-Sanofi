@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById('success-modal').style.display = "block";
 
                 setTimeout(function() {
-                    window.location.href = 'index.html';
+                    window.location.href = 'site.html';
                 }, 2000);
             } else {
                 document.getElementById('error-modal').style.display = "block";

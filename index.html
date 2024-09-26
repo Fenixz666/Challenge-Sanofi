@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solução de Troca de Produtos</title>
-    <link rel="stylesheet" href="assets/css/site.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
+
 <body>
-    <header>
-        <h1 class="animate__animated animate__fadeInDown">Bem-vindo à Solução de Troca de Produtos</h1>
-        <p id="greeting" class="greeting-text">Olá, <span id="user-name">Usuário</span></p>
-    </header>
-    <div class="Fundo">
-        <img src="assets/Imagens/202307 MS France All-carton-packaging Sanofi 19©SimonBuxton.jpg" alt="Fundo">
-    </div>
-    <main>
-        <section class="logo-section">
-            <img src="assets/Imagens/Sanofi logo.png" alt="Logo" class="logo">
-        </section>
+    <div class="container">
+        <div class="image-section">
+            <img src="assets/Imagens/202010 MS China JiaXiaoJing Sanofi 2593©GillesSabrié-CapaPictures.jpg" alt="Img login" class="Img-login">
+            
+        </div>
+     <div id="success-modal" class="modal">
+        <div class="modal-content">
+         <span class="close-button">&times;</span>
+         <h2>Login bem-sucedido</h2>
+         <p>Redirecionando para a pagina principal...</p>
+         </div>
+        </div>
+
+        <div id="error-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Falha de login</h2>
+                <p>Email ou senha incorretos. Por favor, tente novamente.</p>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <img src="assets/Imagens/sanofi-logo-16.png" alt="Sanofi logo" class="Sanofi-logo">
+            <header>
+                <h1>Login</h1>
+            </header>
         
-        <section class="button-section">
-            <h2>Selecione uma Opção</h2>
-            <button class="navigate-button" onclick="window.location.href='clientes.html'">Minha conta</button>
-            <button class="navigate-button" onclick="window.location.href='farmacias.html'">Farmácias</button>
-           <!-- Meus pedidos 
-             <button class="navigate-button" onclick="window.location.href='pedidos.html'">Meus pedidos</button> -->
-        </section>
-    </main>
+            <main>
+                <section class="form-section">
+                    <h2>Entre na sua conta</h2>
+                    <form id="login-form">
+                        <label for="login-email">Email:</label>
+                        <input type="email" id="login-email" name="email" required>
+        
+                        <label for="login-password">Senha:</label>
+                        <input type="password" id="login-password" name="password" required>
+        
+                        <button type="submit">Entrar</button>
+                    </form>
+                    <p>Não tem uma conta? <a href="register.html">Cadastre-se</a></p>
+                </section>
+            </main>
+        </div>
+        
 
-    <nav class="footer-nav">
-        <a href="logout.html" class="logout-button">Sair</a>
-    </nav>
-
-    <script src="assets/javascript/script.js"></script>
+    <script src="assets/javascript/login.js"></script>
 </body>
+
 </html>
